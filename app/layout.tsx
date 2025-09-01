@@ -10,7 +10,7 @@ export const metadata = {
   title: 'Sentinel - Cybersecurity Guardian',
   description: 'AI-powered cybersecurity monitoring and threat detection system',
   icons: {
-    icon: './logo.svg',
+    icon: '/logo.svg',
   },
 }
 
