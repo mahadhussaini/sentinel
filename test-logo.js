@@ -41,6 +41,12 @@ function testLogo(url) {
 // Test with the current Vercel URL
 const vercelUrl = process.argv[2] || 'https://sentinel-smoky.vercel.app';
 
+if (!vercelUrl) {
+  console.log('❌ Usage: node test-logo.js <vercel-url>');
+  console.log('📝 Example: node test-logo.js https://sentinel-smoky.vercel.app');
+  process.exit(1);
+}
+
 console.log(`🧪 Testing logo accessibility at: ${vercelUrl}/logo.svg`);
 console.log('=' .repeat(50));
 

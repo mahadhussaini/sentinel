@@ -9,7 +9,10 @@
     "lint": "next lint",
     "deploy": "vercel --prod",
     "deploy:staging": "vercel",
-    "vercel:link": "vercel link"
+    "vercel:link": "vercel link",
+    "test:logo": "node test-logo.js",
+    "test:deployment": "npm run build && npm run test:logo",
+    "fix:logo": "node fix-logo-deployment.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
