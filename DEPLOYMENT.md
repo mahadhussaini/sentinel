@@ -215,6 +215,10 @@ npm run analyze
 
 After deployment:
 
+### ✅ Static Files Check
+- [ ] Logo.svg is accessible: `https://your-app.vercel.app/logo.svg`
+- [ ] Test with: `node test-logo.js https://your-app.vercel.app`
+
 ### ✅ Functionality Check
 - [ ] Homepage loads correctly
 - [ ] Navigation works on all pages
@@ -274,6 +278,15 @@ vercel rm your-project-name
 - Check `next.config.js` rewrites
 - Ensure all pages are in `app/` directory
 - Verify routing configuration
+
+#### Logo/SVG Issues
+```bash
+# Test logo accessibility
+node test-logo.js https://your-app.vercel.app
+
+# Manual logo check
+curl -I https://your-app.vercel.app/logo.svg
+```
 
 #### Performance Issues
 - Enable Vercel Analytics

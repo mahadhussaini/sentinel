@@ -56,6 +56,19 @@ if %errorlevel% neq 0 (
     echo Alternatively, you can deploy directly without git:
 )
 
+REM Ensure static files are properly copied
+echo 📁 Preparing static files...
+if not exist ".next" mkdir .next
+if not exist ".next\static" mkdir .next\static
+if not exist ".next\public" mkdir .next\public
+if exist "public" (
+    xcopy public\* .next\static\ /Y /I /Q >nul 2>&1
+    xcopy public\* .next\public\ /Y /I /Q >nul 2>&1
+    echo ✅ Static files prepared.
+) else (
+    echo ⚠️  No public directory found.
+)
+
 REM Check if already linked to Vercel project
 if exist ".vercel\project.json" (
     echo ✅ Project already linked to Vercel.

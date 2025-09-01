@@ -44,6 +44,13 @@ if ! git remote get-url origin &> /dev/null; then
     echo "Alternatively, you can deploy directly without git:"
 fi
 
+# Ensure static files are properly copied
+echo "📁 Preparing static files..."
+mkdir -p .next/static
+mkdir -p .next/public
+cp -r public/* .next/static/ 2>/dev/null || echo "⚠️  No public files to copy to static"
+cp -r public/* .next/public/ 2>/dev/null || echo "⚠️  No public files to copy to public"
+
 # Check if already linked to Vercel project
 if [ -f ".vercel/project.json" ]; then
     echo "✅ Project already linked to Vercel."
