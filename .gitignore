@@ -135,7 +135,6 @@ dist
 # Gatsby files
 .cache/
 public
-scripts
 
 # Storybook build outputs
 .out

@@ -1,37 +1,13 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
   "functions": {
-    "app/**/*.js": {
+    "app/**/*.ts": {
       "runtime": "nodejs18.x"
     }
   },
-  "routes": [
-    {
-      "src": "/logo.svg",
-      "dest": "/logo.svg",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable",
-        "Content-Type": "image/svg+xml"
-      }
-    },
-    {
-      "src": "/(.*\\.(svg|png|jpg|jpeg|gif|ico|webp))",
-      "dest": "/$1",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
